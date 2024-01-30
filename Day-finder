@@ -1,0 +1,147 @@
+#include <stdio.h>
+
+int main()
+{
+    int d,m ,mc,y,yc,ye1,ye2,e,Day ;
+    printf("This calculates the name of day you will enter \n");
+    printf("Enter the date\n");
+    scanf("%d" , &d);
+    printf("Enter the month number\n");
+    scanf("%d" , &m);
+    printf("Enter the year\n");
+    scanf("%d" , &y);
+
+    if( m == 10)
+    mc = 1;
+    else if( m == 1)
+    {
+        if( y % 4 == 0)
+        mc = 0;
+        else{
+            if ( y % 400 == 0 )
+            mc = 0 ;
+            else
+            mc = 1;
+        }
+    }
+        else if( m == 2)
+        {
+            if( y % 4 == 0)
+            mc =3;
+         else{
+                if ( y % 400 == 0 )
+                mc = 3 ;
+                else
+                mc = 4;
+        }
+    }
+    else if( m == 3 || m == 11)
+    mc = 4;
+    else if(m == 4 || m == 7 )
+    mc = 0;
+    else if(m == 5)
+    mc = 2;
+    else if(m == 6)
+    mc = 5;
+    else if(m == 8)
+    mc = 3;
+    else if(m == 9 || m == 12)
+    mc = 6;
+    else
+    printf("Error month number\n");
+
+    if( y >= 1600 &&  y <= 1699  )
+    {
+        yc = 6 ;
+        ye1 = 1600;
+        ye2 = y - ye1;
+        e = ye2 / 4;
+    }
+             else if( y >= 1700 &&  y <= 1799  )
+              {
+                 yc = 4 ;
+                 ye1 = 1700;
+                 ye2 = y - ye1;
+                  e = ye2 / 4;
+             }
+                    else if( y >= 1800 && y <= 1899  )
+                    {
+                        yc = 2 ;
+                        ye1 = 1800;
+                        ye2 = y - ye1;
+                        e = ye2 / 4;
+                    }
+                            else if( y >= 1900 && y <= 1999  )
+                            {
+                                yc = 0 ;
+                                ye1 = 1900;
+                                 ye2 = y - ye1;
+                                 e = ye2 / 4;
+                             }
+                                else if( y >= 2000 && y <= 2099  )
+                                {
+                                    yc = 6 ;
+                                    ye1 = 2000;
+                                    ye2 = y - ye1;
+                                    e = ye2 / 4;
+                                 }
+                                            else if( y >= 2100 && y <= 2199  )
+                                         {
+                                             yc = 4 ;
+                                             ye1 = 2100;
+                                             ye2 = y - ye1;
+                                             e = ye2 / 4;
+                                        }
+                                    else if( y >= 2200 && y <= 2299  )
+                                    {
+                                         yc = 2 ;
+                                        ye1 = 2200;
+                                        ye2 = y - ye1;
+                                        e = ye2 / 4;
+                                    }
+                            else if( y >= 2300 && y <= 2399  )
+                            {
+                             yc = 0 ;
+                             ye1 = 2300;
+                             ye2 = y - ye1;
+                             e = ye2 / 4;
+                            }
+    else if( y >= 2400 && y <= 2499  )
+    {
+        yc = 6 ;
+        ye1 = 2400;
+        ye2 = y - ye1;
+        e = ye2 / 4;
+    }
+    else
+    {
+    printf(" ");
+    }
+    
+     
+
+     Day = ( e + d + mc + yc + ye2 ) % 7 ;
+
+     if( Day == 1)
+     printf("The day will be SUNDAY \n");
+            else if( Day == 2)
+            printf("The day will be MONDAY \n");
+                          else if( Day == 3)
+                          printf("The day will be TUESDAY \n");
+                                else if( Day == 4)
+                                printf("The day will be WEDNESDAY \n");
+                          else if( Day == 5)
+                          printf("The day will be THURSDAY \n");
+            else if( Day == 6)
+            printf("The day will be FRIDAY \n");
+     else if( Day == 0)
+     printf("The day will be SATURDAY \n");
+                                         else 
+                                         printf("no day matched");
+
+     
+     printf("%d\n%d\n%d\n%d\n%d\n" ,d,mc,yc,ye2,e);
+
+
+    return 0;
+}
